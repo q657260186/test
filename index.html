@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>校训楼训征集</title>
+	<meta charset="utf-8">
+	<script src="static/js/jquery.min.js"></script>
+	<style type="text/css">
+		html {
+			margin: 0;
+			height: 100%;
+		}
+		body {
+			margin: 0;
+			background-image: url(static/images/bg.jpg);
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			width: 100%;
+			height: 100%;
+		}
+		h3 h4 {
+			color: white;
+		}
+		.main_bg {
+			background-color: rgba(101, 118, 125, 0.77);;
+			height: 255px;
+			width: 280px;
+			padding: 10px;
+			left: 50%;
+			top: 50%;
+			margin: 10px auto 5px auto;
+		}
+		.titles {
+			font-size: 1.2em;
+			color: #fff;
+			margin: 0 0 .5em;
+			text-align: center;
+			font-weight: 500;
+			line-height: 1.1;
+		}
+		.form-control {
+			display: block;
+			width: 256px;
+			height: 18.5px;
+			padding: 6px 12px;
+			margin: 0 0 6.5px 0;
+			font-size: 14px;
+			line-height: 1.428571429;
+			color: #555555;
+			vertical-align: middle;
+			border: none;
+			background-color: rgba(255, 255, 255, 0.5);
+			-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+			transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+		}
+		.form-control:focus {
+			border-color: #66afe9;
+			outline: 0;
+			-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+			box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+			}
+		.tx {
+			border: none;
+			resize: none;
+			background: rgba(255, 255, 255, 0.5);
+			color: #555555;
+			padding: 6px 10px;
+			min-height: 85px;
+			line-height: 1.428571429;
+			font-size: 14px;
+			width: 260px;
+			height: 73px;
+			margin: 0 0 6.5px 0;
+		}
+		.btn {
+			font-size: 13px;
+			padding: 7px 0;
+			background: #00f482;
+			width: 100%;
+			color: #fff;
+			height: 32.5px;
+			border: none;
+			text-align: center;
+		}
+		.based {
+			color:#00F482;
+			font-size: 1em
+			font-weight:500;
+			padding: 0 10px 2px 10px;
+		}
+		.based2 {
+			color: white;
+			font-size: 13px;
+			margin: .5em 0 .5em;
+			line-height: 1.8em;
+			padding: 0 10px 2px 10px;
+		}
+		.second_bg {
+			background: rgba(0,0,0,0.5);
+			padding: 5px 9px 0 5px;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+  <div class="second_bg">
+    <div class="based">亲爱的<span></span>同学：</div>
+    <div class="based2">"笃学力行,守正求新"是否鞭策,鼓舞着你?<br/>长篇大论滔滔不绝是不是也表达不了你的小情怀?在这里,你的智慧你的高贵有望被载入史册!</div>
+    <div class="based">公寓中心“楼训，楼名”征集大赛，等你来战！</div>
+    <div class="main_bg" id="123">
+  	  <div class="titles">楼训楼名征集大赛</div>
+	    <form style="width: 100%">
+	      <input type="text" name="sch" placeholder="这里是楼名" class="form-control" />
+	      <input type="text" name="lx" placeholder="这里是楼训" class="form-control" >
+		  <textarea placeholder="这里是备注" class="tx"></textarea>
+		  <input  type="button" value="提交" class="btn"/>
+	    </form>
+    </div>
+    <div class="based">征集要求:</div>
+    <div class="based2">1.原创8个字以内<br/>2.附释意(注明灵感出处，缘由)</div>
+  </div>
+</body>
+</html>
