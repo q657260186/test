@@ -11,14 +11,16 @@
 		}
 		body {
 			margin: 0;
-			background-image: url(static/images/bg.jpg);
-			background-repeat: no-repeat;
-			background-size: 100% 100%;
-			width: 100%;
 			height: 100%;
 		}
 		h3 h4 {
 			color: white;
+		}
+		img {
+			height: 100%;
+			width: 100%;
+			z-index: -1;
+			position: fixed;
 		}
 		.main_bg {
 			background-color: rgba(101, 118, 125, 0.77);;
@@ -104,6 +106,7 @@
 	</style>
 </head>
 <body>
+  <img src="static/images/bg.jpg" id="photo">
   <div class="second_bg">
     <div class="based">亲爱的<span></span>同学：</div>
     <div class="based2">"笃学力行,守正求新"是否鞭策,鼓舞着你?<br/>长篇大论滔滔不绝是不是也表达不了你的小情怀?在这里,你的智慧你的高贵有望被载入史册!</div>
@@ -119,6 +122,12 @@
     </div>
     <div class="based">征集要求:</div>
     <div class="based2">1.原创8个字以内<br/>2.附释意(注明灵感出处，缘由)</div>
+    <div class="based">奖励:</div>
+    <div class="based2">1.人气奖——投票数前30条楼训以展板、海报等形式在各楼宣传展示<br/>2.优秀奖——各楼由专家评委选出一条经典之作，作为本楼专属“楼训、楼名”，长期有效<br/>3.获奖者奖品另记，参与者皆有纪念品</div>
   </div>
+<script>
+    var h = $('body').css('height');
+	$('.second_bg').css('height', '687px');
+</script>
 </body>
 </html>
