@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>下拉菜单</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<style>
+		ul {
+			padding: 0;
+			list-style: none;
+		}
+		.d-control {
+			float:left;
+		}
+		.dropdown-a {
+			display: block;
+			padding: 6px 12px;
+			height: 20px;
+			width: 76px;
+			border: 1px solid transparent;
+			border-color: #ccc;
+			border-radius: 4px;
+			text-align: center;
+			text-decoration: none;
+			color: #000;
+			background-color: #fff;
+		}
+		.dropdown-a:hover {
+			background-color: #e6e6e6;
+		}
+		.dropdown-a:hover + .dd-first > .option {
+			height: 20px;
+			font-size: 15px;
+			transition: all 1s;
+		}
+		.dropdown-a:hover + .dd-first {
+			visibility: visible;
+		}
+		.dd-first {
+			visibility: hidden;
+		}
+		.dd-first:hover > .option {
+			visibility: visible;
+			height: 20px;
+			font-size: 15px;
+		}
+		.dd-second {
+			visibility: hidden;
+		}
+		.option {
+			padding: 6px 12px;
+			width: 76px;
+			height: 0px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			font-size: 0px;
+			text-align: center;
+		}
+		.demo2:hover > .dd-second {
+			visibility: visible;
+			margin-left: 89px;
+			margin-top: -27px;
+		}
+		.demo2:hover .option {
+			height: 20px;
+			font-size: 15px;
+			transition: all 1s;
+		}
+		.option:hover {
+			background-color: #e6e6e6;
+		}
+	</style>
+</head>
+<body>
+    <div class="d-control">
+        <ul class="dropdown">
+    	    <a href="#" class="dropdown-a">dropdown</a>
+    	    <ul class="dd-first">
+    		    <li class="option">demo1</li>
+    		    <li class="option demo2">
+    		    	demo2
+    		    	<ul class="dd-second">
+	    		        <li class="option">demo2.1</li>
+	    		        <li class="option">demo2.2</li>
+	    		        <li class="option">demo2.3</li>
+    		    	</ul>
+    		    </li>
+    		    <li class="option">demo3</li>
+    	    </ul>
+        </ul>
+    </div>
+</body>
+</html>
