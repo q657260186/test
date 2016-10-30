@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>寝室美化大赛报名</title>
+    <!-- Loading Bootstrap -->
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../static/js/jquery.form-validator.js"></script>
+    <!-- for timer -->
+    <script src="../static/js/timer/jquery.knob.min.js"></script>
+    <script src="../static/js/timer/jquery.ba-throttle-debounce.min.js"></script>
+    <script src="../static/js/timer/jquery.redcountdown.js"></script>
+    <style type="text/css">
+    /*#cover{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: white;
+        z-index: 10;
+    }*/
+    /*.signup-float {
+        position: fixed;
+        margin: 1em;
+        left: 0;
+        top: 0;
+        width: 2em;
+        height: 2em;
+        z-index: 5;
+    }*/
+
+    .img-responsive {
+        width: 100%;
+    }
+    #signup-timer {
+        margin: 0 auto;
+        float: none;
+    }
+
+    .redCountdownValue span {
+        font-family: "Microsoft Yahei";
+    }
+
+    .signup-header {
+        box-shadow: 0 1px 5px -1px rgba(0, 0, 0, 0.4);
+        margin-bottom: 15px;
+        background-color: #fff;
+    }
+
+    .signup-header .list-group-item {
+        border-radius: 0px;
+        border: 0;
+        border-top: 1px solid #ddd;
+    }
+
+    .signup-form {
+        padding: 1em;
+        /*box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);*/
+        box-shadow: 0 1px 5px -1px rgba(0, 0, 0, 0.4);
+        margin-bottom: 15px;
+        background-color: #fff;
+    }
+    </style>
+</head>
+
+<body style="background-color:#e8ebed">
+    <!-- <div id="cover">
+    loading...
+    </div> -->
+    <!-- <div class="signup-float">
+        <a href="./index.php?i=2&c=entry&do=vote&m=vote"><img class="img-responsive" src="../static/vote/img/left.png" alt="back"></a>
+    </div> -->
+    <div class="container">
+        <div class="signup-header">
+            <ul class="list-group">
+                <li class="list-group-item" style="padding:0">
+                    <div class="signup-wrapper">
+                        <img class="img-responsive center-block" src="../static/images/zhx2016.jpg">
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div id="signup-timer" class="center-block">
+                        <div style="font-size:1em">距离报名结束还有</div>
+                        <div id="rC_PE" class="redCountdownDemo"></div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div id="signup-time" style="font-size:1em">
+                    <strong>活动时间：10月27号——11月27号</strong>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div id="signup-summary" style="font-size:1em">
+                        <br> (1)<strong>报名方式：</strong>
+                              1、线上报名。
+                              2、线下报名可将报名表直接交于生活老师或值班阿姨处，由宿管会同学统一于10月29日下午收集，报名表上必须带有所有美化注意事项，要求报名同学仔细阅读
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="signup-form">
+            <form action="{$submit_url}" method="post" id="form">
+                <div class="form-group">
+                    <label for="academy" class="control-label">楼号</label>
+                    <select class="form-control" id="academy" name="lh" data-validation="select_required">
+                        <option value="0" selected disabled>请选择楼号</option>
+                        <option value="1">机械工程学院</option>
+                        <option value="2">电子信息学院</option>
+                        <option value="3">通信工程学院</option>
+                        <option value="4">自动化学院</option>
+                        <option value="5">计算机学院</option>
+                        <option value="6">生命信息与仪器工程学院</option>
+                        <option value="7">材料与环境工程学院</option>
+                        <option value="8">理学院</option>
+                        <option value="9">经济学院</option>
+                        <option value="10">管理学院</option>
+                        <option value="11">会计学院</option>
+                        <option value="12">外国语学院</option>
+                        <option value="13">数字媒体与艺术设计学院</option>
+                        <option value="14">人文与法学院</option>
+                        <option value="15">马克思主义学院</option>
+                        <option value="16">卓越学院</option>
+                        <option value="17">国际教育学院</option>
+                        <option value="18">继续教育学院</option>
+                        <option value="19">信息工程学院</option>
+                        <option value="20">网络空间安全学院</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="realname" class="control-label">寝室号</label>
+                    <input type="text" class="form-control" name="realname" id="fjh" placeholder="请填写寝室号" data-validation="required" data-validation-error-msg="请填写寝室号">
+                </div>
+            <div class="panel panel-success">
+                <div class="form-group">
+                    <label for="stuid" class="control-label">姓名</label>
+                    <input type="text" class="form-control" name="stuid" id="stuid" placeholder="请输入姓名" data-validation="number_string" data-validation-length="16">
+                </div>
+                <div class="form-group">
+                    <label for="major" class="control-label">学号</label>
+                    <input type="text" class="form-control" name="major" id="major" placeholder="请输入学号" data-validation="required" data-validation-error-msg="请填写学号" data-validation-length="8">
+                </div>
+                <div class="form-group">
+                    <label for="academy" class="control-label">学院</label>
+                    <select class="form-control" id="academy" name="lh" data-validation="select_required">
+                        <option value="0" selected disabled>请选择学院</option>
+                        <option value="1">机械工程学院</option>
+                        <option value="2">电子信息学院</option>
+                        <option value="3">通信工程学院</option>
+                        <option value="4">自动化学院</option>
+                        <option value="5">计算机学院</option>
+                        <option value="6">生命信息与仪器工程学院</option>
+                        <option value="7">材料与环境工程学院</option>
+                        <option value="8">理学院</option>
+                        <option value="9">经济学院</option>
+                        <option value="10">管理学院</option>
+                        <option value="11">会计学院</option>
+                        <option value="12">外国语学院</option>
+                        <option value="13">数字媒体与艺术设计学院</option>
+                        <option value="14">人文与法学院</option>
+                        <option value="15">马克思主义学院</option>
+                        <option value="16">卓越学院</option>
+                        <option value="17">国际教育学院</option>
+                        <option value="18">继续教育学院</option>
+                        <option value="19">信息工程学院</option>
+                        <option value="20">网络空间安全学院</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mobile_long" class="control-label">联系方式</label>
+                    <input type="tel" class="form-control" name="mobile_long" id="mobile_long" placeholder="请输入联系方式" data-validation="number_string">
+                </div>
+            </div>
+            <div class="panel panel-success">
+                <div class="form-group">
+                    <label for="stuid" class="control-label">姓名</label>
+                    <input type="text" class="form-control" name="stuid" id="stuid" placeholder="请输入姓名" data-validation="number_string" data-validation-length="16">
+                </div>
+                <div class="form-group">
+                    <label for="major" class="control-label">学号</label>
+                    <input type="text" class="form-control" name="major" id="major" placeholder="请输入学号" data-validation="required" data-validation-error-msg="请填写学号" data-validation-length="8">
+                </div>
+                <div class="form-group">
+                    <label for="academy" class="control-label">学院</label>
+                    <select class="form-control" id="academy" name="lh" data-validation="select_required">
+                        <option value="0" selected disabled>请选择学院</option>
+                        <option value="1">机械工程学院</option>
+                        <option value="2">电子信息学院</option>
+                        <option value="3">通信工程学院</option>
+                        <option value="4">自动化学院</option>
+                        <option value="5">计算机学院</option>
+                        <option value="6">生命信息与仪器工程学院</option>
+                        <option value="7">材料与环境工程学院</option>
+                        <option value="8">理学院</option>
+                        <option value="9">经济学院</option>
+                        <option value="10">管理学院</option>
+                        <option value="11">会计学院</option>
+                        <option value="12">外国语学院</option>
+                        <option value="13">数字媒体与艺术设计学院</option>
+                        <option value="14">人文与法学院</option>
+                        <option value="15">马克思主义学院</option>
+                        <option value="16">卓越学院</option>
+                        <option value="17">国际教育学院</option>
+                        <option value="18">继续教育学院</option>
+                        <option value="19">信息工程学院</option>
+                        <option value="20">网络空间安全学院</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mobile_long" class="control-label">联系方式</label>
+                    <input type="tel" class="form-control" name="mobile_long" id="mobile_long" placeholder="请输入联系方式" data-validation="number_string">
+                </div>
+            </div>
+            <div class="panel panel-success">
+                <div class="form-group">
+                    <label for="stuid" class="control-label">姓名</label>
+                    <input type="text" class="form-control" name="stuid" id="stuid" placeholder="请输入姓名" data-validation="number_string" data-validation-length="16">
+                </div>
+                <div class="form-group">
+                    <label for="major" class="control-label">学号</label>
+                    <input type="text" class="form-control" name="major" id="major" placeholder="请输入学号" data-validation="required" data-validation-error-msg="请填写学号" data-validation-length="8">
+                </div>
+                <div class="form-group">
+                    <label for="academy" class="control-label">学院</label>
+                    <select class="form-control" id="academy" name="lh" data-validation="select_required">
+                        <option value="0" selected disabled>请选择学院</option>
+                        <option value="1">机械工程学院</option>
+                        <option value="2">电子信息学院</option>
+                        <option value="3">通信工程学院</option>
+                        <option value="4">自动化学院</option>
+                        <option value="5">计算机学院</option>
+                        <option value="6">生命信息与仪器工程学院</option>
+                        <option value="7">材料与环境工程学院</option>
+                        <option value="8">理学院</option>
+                        <option value="9">经济学院</option>
+                        <option value="10">管理学院</option>
+                        <option value="11">会计学院</option>
+                        <option value="12">外国语学院</option>
+                        <option value="13">数字媒体与艺术设计学院</option>
+                        <option value="14">人文与法学院</option>
+                        <option value="15">马克思主义学院</option>
+                        <option value="16">卓越学院</option>
+                        <option value="17">国际教育学院</option>
+                        <option value="18">继续教育学院</option>
+                        <option value="19">信息工程学院</option>
+                        <option value="20">网络空间安全学院</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mobile_long" class="control-label">联系方式</label>
+                    <input type="tel" class="form-control" name="mobile_long" id="mobile_long" placeholder="请输入联系方式" data-validation="number_string">
+                </div>
+            </div>
+            <div class="panel panel-success">
+                <div class="form-group">
+                    <label for="stuid" class="control-label">姓名</label>
+                    <input type="text" class="form-control" name="stuid" id="stuid" placeholder="请输入姓名" data-validation="number_string" data-validation-length="16">
+                </div>
+                <div class="form-group">
+                    <label for="major" class="control-label">学号</label>
+                    <input type="text" class="form-control" name="major" id="major" placeholder="请输入学号" data-validation="required" data-validation-error-msg="请填写学号" data-validation-length="8">
+                </div>
+                <div class="form-group">
+                    <label for="academy" class="control-label">学院</label>
+                    <select class="form-control" id="academy" name="lh" data-validation="select_required">
+                        <option value="0" selected disabled>请选择学院</option>
+                        <option value="1">机械工程学院</option>
+                        <option value="2">电子信息学院</option>
+                        <option value="3">通信工程学院</option>
+                        <option value="4">自动化学院</option>
+                        <option value="5">计算机学院</option>
+                        <option value="6">生命信息与仪器工程学院</option>
+                        <option value="7">材料与环境工程学院</option>
+                        <option value="8">理学院</option>
+                        <option value="9">经济学院</option>
+                        <option value="10">管理学院</option>
+                        <option value="11">会计学院</option>
+                        <option value="12">外国语学院</option>
+                        <option value="13">数字媒体与艺术设计学院</option>
+                        <option value="14">人文与法学院</option>
+                        <option value="15">马克思主义学院</option>
+                        <option value="16">卓越学院</option>
+                        <option value="17">国际教育学院</option>
+                        <option value="18">继续教育学院</option>
+                        <option value="19">信息工程学院</option>
+                        <option value="20">网络空间安全学院</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mobile_long" class="control-label">联系方式</label>
+                    <input type="tel" class="form-control" name="mobile_long" id="mobile_long" placeholder="请输入联系方式" data-validation="number_string">
+                </div>
+            </div>
+            <div class="panel panel-success">
+                <div class="form-group">
+                    <label for="stuid" class="control-label">姓名</label>
+                    <input type="text" class="form-control" name="stuid" id="stuid" placeholder="请输入姓名" data-validation="number_string" data-validation-length="16">
+                </div>
+                <div class="form-group">
+                    <label for="major" class="control-label">学号</label>
+                    <input type="text" class="form-control" name="major" id="major" placeholder="请输入学号" data-validation="required" data-validation-error-msg="请填写学号" data-validation-length="8">
+                </div>
+                <div class="form-group">
+                    <label for="academy" class="control-label">学院</label>
+                    <select class="form-control" id="academy" name="lh" data-validation="select_required">
+                        <option value="0" selected disabled>请选择学院</option>
+                        <option value="1">机械工程学院</option>
+                        <option value="2">电子信息学院</option>
+                        <option value="3">通信工程学院</option>
+                        <option value="4">自动化学院</option>
+                        <option value="5">计算机学院</option>
+                        <option value="6">生命信息与仪器工程学院</option>
+                        <option value="7">材料与环境工程学院</option>
+                        <option value="8">理学院</option>
+                        <option value="9">经济学院</option>
+                        <option value="10">管理学院</option>
+                        <option value="11">会计学院</option>
+                        <option value="12">外国语学院</option>
+                        <option value="13">数字媒体与艺术设计学院</option>
+                        <option value="14">人文与法学院</option>
+                        <option value="15">马克思主义学院</option>
+                        <option value="16">卓越学院</option>
+                        <option value="17">国际教育学院</option>
+                        <option value="18">继续教育学院</option>
+                        <option value="19">信息工程学院</option>
+                        <option value="20">网络空间安全学院</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mobile_long" class="control-label">联系方式</label>
+                    <input type="tel" class="form-control" name="mobile_long" id="mobile_long" placeholder="请输入联系方式" data-validation="number_string">
+                </div>
+            </div>
+                <div class="form-group">
+                    <label for="adjust" class="control-label">主题</label>
+                    <div class="radio">
+                        <label class="radio-inline">
+                            <input type="radio" name="adjust" value="1" checked id="tj1">环保绿色型
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="adjust" value="0" id="tj0">古色古香型
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="adjust" value="0" id="tj0">温馨和谐型
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="adjust" value="0" id="tj0">多才多艺型
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="adjust" value="0" id="tj0">运动健康型
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="adjust" value="0" id="tj0">学习科创型
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="adjust" value="0" id="tj0">其他
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="resume" class="control-label">寝室名及寝室简介</label>
+                    <textarea name="resume" class="form-control" id="resume" rows="5" placeholder="亲，稍微介绍一下你的寝室嘛" data-validation="required" data-validation-error-msg="写一下介绍一下寝室嘛"></textarea>
+                    <p style="float: right;color: #8d8d8d;">还可以输入<span id="maxlength">300</span>字</p>
+                </div>
+                <div class="form-group" id="button">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $(document).ready(function() {
+         var realert = function(){
+          window.alert = function(name){  
+                 var iframe = document.createElement("IFRAME");  
+                iframe.style.display="none";  
+                iframe.setAttribute("src", 'data:text/plain,');  
+                document.documentElement.appendChild(iframe);  
+                window.frames[0].window.alert(name);  
+                iframe.parentNode.removeChild(iframe);  
+            }  
+        }
+        /*Timer Start*/
+        var timeNow = new Date();
+        var secNow = parseInt(timeNow.getTime()/1000);
+        var timeEnd = new Date(2016,8,17,18,30);
+        var secEnd = parseInt(timeEnd.getTime()/1000);
+        var secd = secEnd - secNow;
+        $('#rC_PE').redCountdown({ preset: "flat-colors-very-fat", end: $.now() + secd });
+        /*Timer End*/
+        if ('{$state}'=='already') {
+            $('input').prop('disabled',true);
+            $('select').prop('disabled',true);
+            $('textarea').prop('disabled',true);
+            $("form").attr('id', 'already_form');
+            $('#realname').val('{$res["realname"]}');
+            $("#sex{$res['sex']}").prop("checked", true);
+            $('#stuid').val('{$res["stuid"]}');
+            $('#academy').val('{$res["academy"]}');
+            $('#major').val('{$res["major"]}');
+            $('#mobile_long').val('{$res["mobile_long"]}');
+            $('#mobile_short').val('{$res["mobile_short"]}');
+            $('#department1').val('{$res["department1"]}');
+            $('#department2').val('{$res["department2"]}');
+            $("#tj{$res['adjust']}").prop("checked", true);
+            $('#resume').val('{$res["resume"]}');
+            $('<input type="submit" class="btn btn-info" id="modify" style="margin-right:10px;" value="修改">').appendTo('#button');
+        } else{
+            $('<input type="submit" class="btn btn-default" id="submit" style="margin-right:10px;" value="提交">\n<input type="reset" class="btn btn-danger" value="重置">').appendTo('#button');
+            form_validate();
+        };
+        $("#submit").click(function(){
+            realert();
+            if($("#department1").val()=='4'||$("#department2").val()=='4'){
+                alert("注意：所有报名楼层长事务中心的同学需要同时报名楼层长招新中的楼长");
+            }
+            $("#form").submit();
+        });
+        $("#already_form").submit(function(event) {
+            event.preventDefault();
+            $(this).unbind('submit');
+            $(this).removeAttr('id');
+            $('input').prop('disabled',false);
+            $('select').prop('disabled',false);
+            $('textarea').prop('disabled',false);
+            $("#button").empty();
+            $('<input type="submit" class="btn btn-default" id="submit" style="margin-right:10px;" value="提交">\n<input type="reset" class="btn btn-danger" value="重置">').appendTo('#button');
+            form_validate();
+            $("#submit").click(function(){
+                realert();
+            event.preventDefault();
+            if($("#department1").val()=='4'||$("#department2").val()=='4'){
+                alert("注意：所有报名楼层长事务中心的同学需要同时报名楼层长招新中的楼长");
+            }
+        });
+        });
+
+        function form_validate () {
+            var zh_cn = {
+                lengthBadStart: '必须是 ',
+                lengthBadEnd: ' 位',
+            }
+            $.validate({
+                language : zh_cn,
+            });
+            $("textarea[name='resume']").restrictLength($('#maxlength'));
+        }
+    });
+    </script>
+</body>
+
+</html>
