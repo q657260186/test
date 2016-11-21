@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>parc</title>
+	<meta charset="utf-8">
+	<style>
+		body {
+			background: #dddddd;
+		}
+		#canvas {
+			margin: 10px;
+			padding: 10px
+			background: #ffffff;
+			border: thin inset#aaaaaa;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="600" height="600">
+		Canvas not supported
+	</canvas>
+	<script>
+		var canvas = document.getElementById('canvas');
+		context = canvas.getContext('2d');
+		gradient_radial = context.createRadialGradient(canvas.width/2, canvas.height, 10, canvas.width/2, 0, 100);
+		gradient_radial.addColorStop(0, 'blue');
+		gradient_radial.addColorStop(0.25, 'white');
+		gradient_radial.addColorStop(0.5, 'purple');
+		gradient_radial.addColorStop(0.75, 'red');
+		gradient_radial.addColorStop(1, 'yellow');
+		gradient = context.createLinearGradient(0, 0, canvas.width, 0);
+		gradient.addColorStop(0, 'blue');
+		gradient.addColorStop(0.25, 'white');
+		gradient.addColorStop(0.5, 'purple');
+		gradient.addColorStop(0.75, 'red');
+		gradient.addColorStop(1, 'yellow');
+		context.lineJoin = 'round';
+		context.lineWidth = 30;
+		context.font = '24px Helvetica';
+		context.fillText('Click anywhere to erase', 170, 50);
+		context.strokeStyle = 'goldenrod';
+		context.fillStyle = gradient;
+		context.strokeRect (75, 100, 200, 200);
+		context.fillRect(325, 100, 200, 200);
+		context.fillStyle = gradient_radial;
+		context.rect(0, 330, canvas.width, canvas.height);
+		context.fill();
+		context.canvas.onmousedown = function (e) {
+			context.clearRect (0, 0, canvas.width, canvas.height);
+		} 
+
+	</script>
+</body>
+</html>
