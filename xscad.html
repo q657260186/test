@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>好好学习</title>
+	<meta charset="utf-8">
+	<style>
+		html {
+			height: 100%;
+		}
+
+		body {
+			margin: 0;
+			height: 100%;
+			background: url('static/images/04.jpg');
+		}
+
+		.base {
+			position: absolute;
+			z-index: -9999;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.5);
+		}
+
+		.logo {
+			position: absolute;
+			z-index: 1;
+			background-image: url('static/images/logo.png');
+			background-repeat: no-repeat;
+			background-size: 77px 65px;
+			height: 70px;
+			width: 70px;
+		}
+
+		.header {
+			z-index: 0;
+			position: fixed;
+			width: 100%;
+			text-align: center;
+		}
+
+		.h-item {
+			color: white;
+			width: 110px;
+			margin: 10px 50px;
+			display: inline-block;
+			font-family: "微软雅黑","华文细黑",Arial, Helvetica, sans-serif;font-family:"宋体", "Times New Roman", Times, serif;font-family:"华文细黑",Courier New, Courier, monospacefont-family: "华文仿宋",Georgia, "Times New Roman", Times, serif;font-family:"黑体", Verdana, Arial, Helvetica, sans-serif;font-family:"方正姚体", Geneva, Arial, Helvetica, sans-serif;
+			font-size: 1.8rem;
+			cursor: pointer;
+		}
+
+		.h-item:hover {
+			color: rgba(178,200,187,1);
+		}
+
+		.center {
+			display: block;
+			font-family: "微软雅黑","华文细黑",Arial, Helvetica, sans-serif;
+			font-size: 2rem;
+			color: white;
+			position: absolute;
+			top: 25%;
+			left: 50%;
+			margin-top: 200px;
+			margin-left: -237.4px;
+		}
+
+		.date-control {
+			display: block;
+			font-family: "微软雅黑","华文细黑",Arial, Helvetica, sans-serif;
+			font-size: 7rem;
+			color: white;
+			position: absolute;
+			top: 25%;
+			left: 50%;
+			margin-top: 0px;
+			margin-left: -224px;
+		}
+
+		.date-control-min {
+			display: block;
+			font-family: "微软雅黑","华文细黑",Arial, Helvetica, sans-serif;
+			font-size: 2rem;
+			color: white;
+			position: absolute;
+			top: 25%;
+			left: 50%;
+			margin-top: 148px;
+			margin-left: -123px;
+		}
+
+		.beian {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			color: white;
+		}
+
+		.btn {
+			padding: 15px;
+			border: 3px solid #778899;
+			color: white;
+			font-size: 2rem;
+			position: absolute;
+			top: 25%;
+			left: 50%;
+			margin-top: 270px;
+			margin-left: -175px;
+			width: 350px;
+			font-family:"华文细黑",Courier New, Courier,"华文仿宋",Georgia, "Times New Roman", Times, serif;
+			background-color: rgba(69,127,148,0); 
+			border-radius: 50px;
+			outline:none;
+			cursor: pointer;
+		}
+
+		.btn:hover {
+			background-color: rgba(69,127,148,1); 
+		}
+	</style>
+</head>
+<body>
+	<div class="base"></div>
+	<div class="logo"></div>
+	<div class="header">
+		<div class="h-item">My Story</div>
+		<div class="h-item">Find me</div>
+		<div class="h-item">Dialog</div>
+	</div>
+	<div class="date-control"></div>
+	<div class="date-control-min"></div>
+	<div class="center">Good Good Study, Day Day Up!</div>
+	<button class="btn">Enter</button>
+	<div class="beian">@湘ICP备16018972号</div>
+<script>
+	var month;
+	var dated;
+	var time;
+	(function date_control() {
+			var date = new Date;
+			month = addNumber(date.getMonth() + 1);
+			dated = date.getFullYear() + '年' + month + "月" + addNumber(date.getDate()) + '日';
+			time = addNumber(date.getHours()) + ':' + addNumber(date.getMinutes()) + ':' + addNumber(date.getSeconds());
+			document.getElementsByClassName('date-control')[0].innerHTML = time;
+			document.getElementsByClassName('date-control-min')[0].innerHTML = dated; 
+		setTimeout(function() {
+			date_control();
+		}, 1000);
+	})();
+	function addNumber(data) {
+		if (data < 10) {
+			data = '0' + data;
+		}
+		return data;
+	}
+</script>
+</body>
+</html>

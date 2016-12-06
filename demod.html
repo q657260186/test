@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Document</title>
+  <script type="text/javascript">
+ 
+    function startTime () {
+      setTimeout(function(){
+        var today=new Date();
+        var y=today.getFullYear();
+        var mon=today.getMonth()+1;
+        var d=today.getDay();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+        console.log(s);
+        document.getElementById("timeid").innerHTML=y+"年"+mon+"月"+d+"日"+h+":"+m+":"+s;
+        startTime();
+      },500);
+    }    
+ 
+   function changNum(i){   //月、日、秒如果小于10数字前加0
+       if(i<10){
+          return "0"+i;
+       }
+       return i;
+   }
+ 
+  </script>
+</head>
+<body onload="startTime()">
+ 
+<h1 id="timeid"></h1>
+ 
+</body>
+</html>
